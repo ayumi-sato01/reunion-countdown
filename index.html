@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reunion Countdown</title>
+
+  <!-- Fonts and CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Aclonica&family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCkzCuXswHRKe83OiGpZqh6Zuje-IvJO80",
+      authDomain: "reunion-countdown-1accc.firebaseapp.com",
+      databaseURL: "https://reunion-countdown-1accc-default-rtdb.firebaseio.com",
+      projectId: "reunion-countdown-1accc",
+      storageBucket: "reunion-countdown-1accc.appspot.com",
+      messagingSenderId: "463509624632",
+      appId: "1:463509624632:web:6c3a5c940c0dcb2939d3cd"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Countdown to Our Reunion 💖</h1>
+    <div id="countdown"></div>
+
+    <div class="daily-message">
+      <img id="photo" src="" alt="Daily Photo" />
+      <p id="message"></p>
+      <button id="likeButton">❤️ I saw it!</button>
+      <p id="likeStatus" style="margin-top: 10px;"></p>
+      <button id="toggleMusic">🔇</button>
+    </div>
+
+    <h2>💌 Previously Shared Messages</h2>
+    <div id="previewGallery" class="gallery"></div>
+  </div>
+
+  <!-- Fullscreen modal preview -->
+  <div id="fullscreenPreview" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal" class="close-btn">&times;</span>
+      <img id="modalPhoto" src="" alt="Full Photo" />
+      <p id="modalMessage"></p>
+      <div class="arrow-buttons">
+        <button id="prevDay">&larr;</button>
+        <button id="nextDay">&rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Music -->
+  <audio id="bg-music" src="music/song.mp3" loop autoplay></audio>
+
+  <!-- JS Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
