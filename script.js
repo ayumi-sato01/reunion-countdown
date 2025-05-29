@@ -116,14 +116,18 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("fullscreenPreview").classList.remove("hidden");
   }
 
-  function showModalForDay(day) {
-    fetch(`data/day${day}.json`)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("modalPhoto").src = `images/day${day}.jpg`;
-        document.getElementById("modalMessage").textContent = data.message;
-      });
-  }
+ function showModalForDay(day) {
+  fetch(`data/day${day}.json`)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("modalPhoto").src = `images/day${day}.jpg`;
+      document.getElementById("modalMessage").textContent = data.message;
+    })
+    .catch(err => {
+      console.error(`❌ Failed to load modal for day ${day}:`, err);
+    });
+}
+
 
   document.getElementById("closeModal").addEventListener("click", () => {
     document.getElementById("fullscreenPreview").classList.add("hidden");
