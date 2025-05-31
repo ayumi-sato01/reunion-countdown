@@ -93,6 +93,7 @@ window.addEventListener("DOMContentLoaded", () => {
       fetch(`data/day${day}.json`)
         .then(response => response.json())
         .then(data => {
+          console.log(`⬜ Loaded preview for day ${day}`);
           const div = document.createElement("div");
           div.className = "gallery-item";
           div.innerHTML = `
